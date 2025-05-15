@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard</title>
+    <meta name="description" content="Comprehensive cybersecurity solutions including red teaming, blue teaming, and purple teaming services.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Cyber</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="red-teaming.html" class="hover:text-red-400 transition duration-300">Red Teaming</a></li>
+                    <li><a href="blue-teaming.html" class="hover:text-blue-400 transition duration-300">Blue Teaming</a></li>
+                    <li><a href="purple-teaming.html" class="hover:text-purple-400 transition duration-300">Purple Teaming</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Navigation">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="hidden w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+        <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+            <div class="flex justify-end mb-4">
+                <button id="mobile-menu-close-btn" class="text-white focus:outline-none" aria-label="Close Mobile Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="block">
+                <ul class="space-y-4">
+                    <li><a href="red-teaming.html" class="block text-lg text-white hover:text-red-400 transition duration-300">Red Teaming</a></li>
+                    <li><a href="blue-teaming.html" class="block text-lg text-white hover:text-blue-400 transition duration-300">Blue Teaming</a></li>
+                    <li><a href="purple-teaming.html" class="block text-lg text-white hover:text-purple-400 transition duration-300">Purple Teaming</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-10">
+        <section class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+                Your Trusted Cybersecurity Partner
+            </h2>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                Providing comprehensive cybersecurity solutions to protect your business from evolving threats.
+            </p>
+            <a href="#services" class="inline-block mt-8 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-full hover:from-blue-600 hover:to-purple-600 transition duration-300 shadow-lg">
+                Explore Our Services
+            </a>
+        </section>
+
+        <section id="services" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-2xl font-semibold text-red-400 mb-4">Red Teaming</h3>
+                <p class="text-gray-300 mb-4">
+                    Simulate real-world attacks to identify vulnerabilities and improve your security posture.
+                </p>
+                <a href="red-teaming.html" class="inline-block text-red-400 hover:text-red-300 transition duration-300 font-semibold">Learn More &rarr;</a>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-2xl font-semibold text-blue-400 mb-4">Blue Teaming</h3>
+                <p class="text-gray-300 mb-4">
+                    Strengthen your defenses, detect threats, and respond effectively to security incidents.
+                </p>
+                <a href="blue-teaming.html" class="inline-block text-blue-400 hover:text-blue-300 transition duration-300 font-semibold">Learn More &rarr;</a>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                <h3 class="text-2xl font-semibold text-purple-400 mb-4">Purple Teaming</h3>
+                <p class="text-gray-300 mb-4">
+                    Enhance collaboration between red and blue teams for continuous security improvement.
+                </p>
+                <a href="purple-teaming.html" class="inline-block text-purple-400 hover:text-purple-300 transition duration-300 font-semibold">Learn More &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>&copy; 2025 Cybersecurity Services. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="mailto:info@cybersecurity.com" class="text-blue-400 hover:text-blue-300 transition duration-300">info@cybersecurity.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Animations
+        gsap.from('header', { opacity: 0, y: -50, duration: 1, ease: 'easeInOut' });
+        gsap.from('main > section:nth-child(1) > *', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'easeInOut',
+            stagger: 0.3
+        });
+        gsap.from('main > section:nth-child(2) > div', {
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.8,
+            ease: 'easeInOut',
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: 'main > section:nth-child(2)',
+                start: 'top center',
+                once: true
+            }
+        });
+        gsap.from('footer', { opacity: 0, y: 50, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: 'footer',
+                start: 'top bottom'
+            } });
+
+        // Mobile Menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        const navLinks = document.querySelectorAll('header nav a');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                    toggleMobileMenu();
+                    const href = link.getAttribute('href');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                }
+            });
+        });
+
+        // Close menu on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

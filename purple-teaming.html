@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Teaming - CyberGuard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        /* Custom styles for animations and effects */
+        .hero-title-char {
+            opacity: 0;
+            transform: translateY(20px);
+            display: inline-block;
+        }
+        .card-purple {
+            background-image: linear-gradient(to bottom, rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0.05));
+        }
+        .card-purple:hover {
+            background-image: linear-gradient(to bottom, rgba(167, 139, 250, 0.2), rgba(167, 139, 250, 0.1));
+        }
+        #scenario-section {
+            background-color: rgba(17, 24, 39, 0.9); /* Darker, slightly transparent background */
+            backdrop-filter: blur(12px);
+            padding: 6rem 0;
+            border-radius: 1rem;
+            margin-top: 8rem;
+        }
+
+        #scenario-section h2{
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e0f2fe;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        #scenario-section p{
+            font-size: 1.2rem;
+            color: #f5f5f5;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+       .evidence-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(125, 211, 252, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .evidence-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #a7f3d0;
+            margin-bottom: 0.75rem;
+        }
+        .clue{
+             font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 font-inter text-white">
+    <header class="bg-gray-900 sticky top-0 z-50 py-4 border-b border-gray-800 backdrop-blur-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center text-2xl font-semibold text-purple-400">
+                <i class="fas fa-shield-alt mr-2 text-teal-400"></i> CyberGuard
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="nav-link text-gray-300 hover:text-purple-300 transition duration-300">Home</a></li>
+                    <li><a href="red-teaming.html" class="nav-link text-gray-300 hover:text-purple-300 transition duration-300">Red Teaming</a></li>
+                    <li><a href="blue-teaming.html" class="nav-link text-gray-300 hover:text-purple-300 transition duration-300">Blue Teaming</a></li>
+                    <li><a href="purple-teaming.html" class="nav-link text-purple-300 border-b-2 border-purple-500 transition duration-300">Purple Teaming</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+              <button id="mobile-menu-button" class="text-gray-300 hover:text-purple-300 focus:outline-none focus:shadow-outline">
+                <i class="fas fa-bars text-xl"></i>
+              </button>
+              <div id="mobile-menu" class="hidden absolute top-16 right-0 bg-gray-800 shadow-lg rounded-md py-2 px-4 space-y-3 border border-gray-700">
+                <a href="/" class="block text-gray-300 hover:text-purple-300 transition duration-300">Home</a>
+                <a href="/red-teaming" class="block text-gray-300 hover:text-purple-300 transition duration-300">Red Teaming</a>
+                <a href="/blue-teaming" class="block text-gray-300 hover:text-purple-300 transition duration-300">Blue Teaming</a>
+                <a href="/purple-teaming" class="block text-purple-300 transition duration-300">Purple Teaming</a>
+              </div>
+            </div>
+            <div class="hidden md:flex">
+                <a href="/sign-in" class="text-blue-400 hover:text-purple-300 mr-4 transition duration-300">Sign In</a>
+                <a href="/free-trial" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full transition duration-300">Free Trial</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <section class="text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+                <span class="hero-title-char">P</span><span class="hero-title-char">u</span><span class="hero-title-char">r</span>
+                <span class="hero-title-char">p</span><span class="hero-title-char">l</span><span class="hero-title-char">e</span>
+                <span class="hero-title-char">T</span><span class="hero-title-char">e</span><span class="hero-title-char">a</span>
+                <span class="hero-title-char">m</span><span class="hero-title-char">i</span><span class="hero-title-char">n</span>
+                <span class="hero-title-char">g</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+               Purple Teaming is the proactive collaboration between red and blue teams to enhance cybersecurity defenses.
+               It merges offensive and defensive strategies to identify vulnerabilities, test controls,
+               and improve the organization's overall security posture.
+            </p>
+            <a href="#scenario-section" class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-500 to-teal-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                Uncover a Scenario
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </section>
+
+
+
+        <section id="scenario-section" class="py-16  rounded-xl shadow-lg">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-semibold  mb-8 text-purple-300">A Purple Teaming Scenario: The Case of the Compromised E-commerce Site</h2>
+                <p class="text-gray-300 mb-4">
+                    Imagine you are the lead security analyst at CyberGuard. Your e-commerce website has been breached,
+                    and customer data is at risk.  Let's walk through how a purple teaming approach can help you investigate
+                    and respond to this incident.
+                </p>
+
+                <div class="evidence-box">
+                    <h3 class="evidence-title">Initial Detection (Blue Team)</h3>
+                    <p class="clue">Suspicious activity detected in server logs:  Multiple failed login attempts from unknown IPs followed by a successful login and unusual database queries.</p>
+                    <p class="text-gray-300">The blue team, responsible for monitoring and defense, flags this as a potential account takeover and data exfiltration attempt.</p>
+                </div>
+
+                <div class="evidence-box">
+                    <h3 class="evidence-title">Red Team Simulation</h3>
+                     <p class="clue">The red team, simulating an attacker, confirms the vulnerability:  They identify a SQL injection flaw in the login functionality that allowed them to bypass authentication.</p>
+                    <p class="text-gray-300">  They then used this access to extract customer data, mimicking the attacker's actions.</p>
+                </div>
+
+                <div class="evidence-box">
+                    <h3 class="evidence-title">Purple Team Response</h3>
+                    <p class="text-gray-300">
+                        The purple team, comprising members of both red and blue teams, collaborates in real-time.
+                        They use the red team's findings to:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300">
+                        <li><strong>Understand the attack vector:</strong>  The SQL injection vulnerability.</li>
+                        <li><strong>Assess the impact:</strong>  Customer data exfiltration.</li>
+                        <li><strong>Improve detection:</strong>  The blue team refines their monitoring rules to better detect similar attacks in the future.</li>
+                        <li><strong>Strengthen defenses:</strong>  The development team, guided by the purple team, patches the SQL injection flaw.</li>
+                        <li><strong>Enhance incident response:</strong> The security team updates the incident response plan with specific steps for this type of attack.</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-300 mb-4">
+                    Through this purple teaming exercise, the organization not only contains the breach but also significantly improves
+                    its security posture, reducing the risk of future attacks.
+                </p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="bg-gray-900 py-6 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">About Us</h4>
+                    <p class="text-gray-400 text-md">
+                        CyberGuard is a leading provider of cybersecurity solutions and services,
+                        dedicated to protecting your digital assets.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-300 hover:text-purple-300 transition duration-200">Home</a></li>
+                        <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition duration-200">Services</a></li>
+                        <li><a href="/pricing" class="text-gray-300 hover:text-purple-300 transition duration-200">Pricing</a></li>
+                        <li><a href="/contact" class="text-gray-300 hover:text-purple-300 transition duration-200">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy" class="text-gray-300 hover:text-purple-300 transition duration-200">Privacy Policy</a></li>
+                        <li><a href="/terms" class="text-gray-300 hover:text-purple-300 transition duration-200">Terms of Service</a></li>
+                        <li><a href="/sitemap" class="text-gray-300 hover:text-purple-300 transition duration-200">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-purple-300 transition duration-200"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-purple-300 transition duration-200"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-purple-300 transition duration-200"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-purple-300 transition duration-200"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400 text-sm">
+                © 2024 CyberGuard, Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+
+        // Hero Title Animation
+        const titleChars = document.querySelectorAll('.hero-title-char');
+        gsap.from(titleChars, {
+            opacity: 0,
+            y: 80,
+            scale: 0.3,
+            duration: 1.2,
+            stagger: 0.05,
+            ease: "back.out(2)",
+            delay: 0.2
+        });
+
+        // Subheading Animation
+        gsap.from(".hero-section p", {
+            opacity: 0,
+            y: 30,
+            delay: 1.7,
+            duration: 1.2,
+            ease: "power2.out"
+        });
+
+        // Learn More Button
+        gsap.from(".hero-section a", {
+            opacity: 0,
+            scale: 0.8,
+            delay: 2.2,
+            duration: 1,
+            ease: "easeOut"
+        });
+
+
+
+        // About Us Animation
+        gsap.from(".about-section", {
+            scrollTrigger: {
+                trigger: ".about-section",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            },
+            opacity: 0,
+            x: -50,
+            duration: 1.2,
+            ease: "easeInOut"
+        });
+
+         // Scenario Section Animation
+        gsap.from("#scenario-section", {
+            scrollTrigger: {
+                trigger: "#scenario-section",
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            ease: "easeInOut",
+            delay: 0.5
+        });
+
+        // Evidence Boxes Animation
+        gsap.from(".evidence-box", {
+            scrollTrigger: {
+                trigger: "#scenario-section",
+                start: "top 70%",
+                toggleActions: "play none none reset"
+            },
+            opacity: 0,
+            x: 50,
+            duration: 1,
+            stagger: 0.3,
+            ease: "easeInOut",
+            delay: 1
+        });
+
+    });
+    </script>
+</body>
+</html>
