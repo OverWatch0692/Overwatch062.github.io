@@ -4,41 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberGuard - Red Teaming</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             background-color: #111;
-        }
-
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a, #e63946);
-            color: white;
-            text-align: center;
-            padding-bottom: 10%;
-        }
-
-        .hero-section h1 {
-            font-size: 8vw;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px #ff4500;
-            letter-spacing: -0.02em;
-            white-space: nowrap;
-        }
-
-        .hero-section p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
         }
 
         .red-team-section {
@@ -46,6 +20,7 @@
             overflow: hidden;
             position: relative;
             background: #080808;
+            padding-top: 5rem;
         }
 
         .horizontal-scroll-container {
@@ -69,6 +44,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height: 80vh;
         }
 
         .service-box:hover {
@@ -76,305 +52,67 @@
         }
 
         .service-box h4 {
-            font-size: 2rem;
+            font-size: 2.5vw;
             color: #ff4500;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-box p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #e63946, #1a1a1a);
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        .cta-section p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .cta-section .btn {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background-color: #fff;
-            color: #e63946;
-            border: none;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .cta-section .btn:hover {
-            background-color: #f0f0f0;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-        }
-
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        footer a {
-            color: #e63946;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .hero-title {
-            font-size: 8vw;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            white-space: nowrap;
-            color: #ff4500;
-            text-shadow: 0 0 15px #ff4500;
-            animation: flicker 1.5s infinite;
-        }
-
-        @keyframes flicker {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.4;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .char {
-            display: inline-block;
-            transition: transform 0.5s ease, color 0.3s ease;
-        }
-
-        .char:hover {
-            transform: translateY(-10px) scale(1.2);
-            color: #fff;
-            text-shadow: 0 0 10px #ff4500;
-        }
-
-        .special-d svg {
-            width: 8vw;
-            height: 8vw;
-            stroke: #ff4500;
-            stroke-width: 8;
-            fill: none;
-            transition: all 0.5s ease;
-            animation: pulse 2s infinite alternate;
-        }
-
-        .special-d svg:hover {
-            stroke: #fff;
-            transform: scale(1.2);
-            box-shadow: 0 0 20px #ff4500;
-        }
-
-        @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.1);
-            }
-        }
-
-        .special-i svg {
-            width: 8vw;
-            height: 8vw;
-            fill: #ff4500;
-            transition: all 0.5s ease;
-            animation: pulse 2s infinite alternate;
-        }
-
-        .special-i svg:hover {
-            fill: #fff;
-            transform: scale(1.2);
-            box-shadow: 0 0 20px #ff4500;
+            font-size: 1.4vw;
+            line-height: 1.8;
+            max-width: 80%;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <i class="fas fa-shield-alt text-primary"></i> CyberGuard
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Landing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="red-teaming.html">Red Teaming</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blue-teaming.html">Blue Teaming</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="purple-teaming.html">Purple Teaming</a>
-                </li>
-            </ul>
-            <div class="d-flex">
-                <a href="signin.html" class="btn btn-outline-primary me-2">Sign In</a>
-                <a href="free.html" class="btn btn-primary">Free</a>
+    <section class="red-team-section">
+        <div class="horizontal-scroll-container">
+            <div class="service-box">
+                <h4 class="text-3xl text-red-400 mb-4">Social Engineering</h4>
+                <p class="text-lg leading-relaxed">Simulate real-world social engineering attacks to test your organization's resilience.</p>
+            </div>
+            <div class="service-box">
+                <h4 class="text-3xl text-red-400 mb-4">Phishing Simulation</h4>
+                <p class="text-lg leading-relaxed">Evaluate employee awareness and training with targeted phishing campaigns.</p>
+            </div>
+            <div class="service-box">
+                <h4 class="text-3xl text-red-400 mb-4">Internal Network Penetration</h4>
+                <p class="text-lg leading-relaxed">Identify vulnerabilities within your internal network to prevent insider threats.</p>
+            </div>
+            <div class="service-box">
+                <h4 class="text-3xl text-red-400 mb-4">Web Application Exploitation</h4>
+                <p class="text-lg leading-relaxed">Our team of experts will find and exploit vulnerabilities in your web applications.</p>
             </div>
         </div>
-    </div>
-</nav>
+    </section>
 
-<section class="hero-section">
-    <div>
-        <h1 class="hero-title">
-            <span class="char">R</span>
-            <span class="char">E</span>
-            <span class="char special-d">
-                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="40" stroke="red" stroke-width="10" fill="none" />
-                </svg>
-            </span>
-            <span class="char"> </span>
-            <span class="char">T</span>
-            <span class="char">E</span>
-            <span class="char">A</span>
-            <span class="char">M</span>
-            <span class="char special-i">
-                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="25" y="25" width="50" height="50" fill="red" />
-                </svg>
-            </span>
-            <span class="char">N</span>
-            <span class="char">G</span>
-        </h1>
-        <p class="hero-subtitle">Simulating adversaries to strengthen defenses.</p>
-    </div>
-</section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize ScrollMagic Controller
+            const controller = new ScrollMagic.Controller();
 
-<section class="red-team-section">
-    <div class="horizontal-scroll-container">
-        <div class="service-box">
-            <h4>Social Engineering</h4>
-            <p>Simulate real-world social engineering attacks to test your organization's resilience. We craft personalized phishing campaigns, simulate vishing calls, and even conduct on-site visits to assess vulnerabilities in human security.</p>
-        </div>
-        <div class="service-box">
-            <h4>Phishing Simulation</h4>
-            <p>Evaluate employee awareness and training with targeted phishing campaigns. Our simulations include a variety of techniques, from simple email spoofs to complex, multi-stage attacks that mimic the latest adversary tactics.</p>
-        </div>
-        <div class="service-box">
-            <h4>Internal Network Penetration</h4>
-            <p>Identify vulnerabilities within your internal network to prevent insider threats. We conduct thorough assessments of your network infrastructure, including segmentation, access controls, and data flow, to uncover weaknesses.</p>
-        </div>
-        <div class="service-box">
-            <h4>Web Application Exploitation</h4>
-            <p>Our team of experts will find and exploit vulnerabilities in your web applications.</p>
-        </div>
-    </div>
-</section>
+            // Select the horizontal scroll container
+            const scrollContainer = document.querySelector(".horizontal-scroll-container");
 
-<section class="cta-section">
-    <div class="container">
-        <h2>Ready to Strengthen Your Defenses?</h2>
-        <p>Join thousands of businesses that trust CyberGuard for their cybersecurity needs.</p>
-        <a href="signup.html" class="btn btn-light btn-lg">Get Started</a>
-    </div>
-</section>
+            // Calculate the scroll distance
+            const scrollDistance = scrollContainer.scrollWidth - window.innerWidth;
 
-<footer>
-    <div class="container text-center">
-        <p>© 2025 CyberGuard. All rights reserved. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Horizontal Scrolling Animation
-        const scrollContainer = document.querySelector(".horizontal-scroll-container");
-
-        gsap.to(scrollContainer, {
-            x: () => -(scrollContainer.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".red-team-section",
-                start: "top top",
-                end: () => `+=${scrollContainer.scrollWidth}`,
-                scrub: true,
-                pin: true,
-                anticipatePin: 1,
-            },
+            // Create a ScrollMagic Scene
+            new ScrollMagic.Scene({
+                triggerElement: ".red-team-section", // Start the animation when this section enters the viewport
+                triggerHook: 0, // Trigger at the top of the viewport
+                duration: scrollDistance // Duration of the scroll animation
+            })
+            .setPin(".red-team-section") // Pin the section during the animation
+            .setTween(
+                gsap.to(scrollContainer, {
+                    x: -scrollDistance, // Move the container horizontally
+                    ease: "power3.out" // Smooth easing
+                })
+            )
+            .addTo(controller); // Add the scene to the ScrollMagic controller
         });
-
-        // Service Box Animation
-        gsap.from(".service-box", {
-            scrollTrigger: {
-                trigger: ".horizontal-scroll-container",
-                start: "top 90%",
-                toggleActions: "play none none reset",
-            },
-            opacity: 0,
-            y: 50,
-            stagger: 0.2,
-            duration: 1.2,
-            ease: "power3.out",
-        });
-
-        // Hero Title Animation (Character by Character)
-        gsap.from(".char", {
-            opacity: 0,
-            y: 100,
-            stagger: 0.05,
-            duration: 1.5,
-            ease: "back.out(1.7)"
-        });
-
-        // Special Animation for SVG D
-        gsap.from(".special-d svg", {
-            opacity: 0,
-            scale: 0,
-            rotation: 360,
-            duration: 1.5,
-            ease: "power4.out"
-        });
-
-        // Special Animation for SVG I
-        gsap.from(".special-i svg", {
-            opacity: 0,
-            scale: 0,
-            duration: 1.5,
-            ease: "elastic.out(1, 0.5)"
-        });
-
-        // Hero Subtitle Animation
-        gsap.from(".hero-subtitle", {
-            opacity: 0,
-            y: 50,
-            delay: 0.5,
-            duration: 1.5,
-            ease: "power4.out"
-        });
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </script>
 </body>
 </html>
